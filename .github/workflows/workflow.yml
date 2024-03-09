@@ -1,0 +1,15 @@
+name: Your Github Workflow name
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 17 * * *'
+jobs:
+  run-bash-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build rulesets
+        run: |
+          chmod +x scripts/build_ads.sh
+          scripts/build_ads.sh
+          
