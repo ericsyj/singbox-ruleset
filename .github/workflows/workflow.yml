@@ -12,4 +12,11 @@ jobs:
         run: |
           chmod +x scripts/build_ads.sh
           scripts/build_ads.sh
-          
+      - name: Commit and push if it changed
+        run: |
+          git diff
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add .
+          git commit -m "Update data files"
+          git push
