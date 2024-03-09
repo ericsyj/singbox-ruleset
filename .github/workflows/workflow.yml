@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 17 * * *'
+permissions:
+  contents: write
 jobs:
   run-bash-script:
     runs-on: ubuntu-latest
