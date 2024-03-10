@@ -1,7 +1,5 @@
 #!/bin/bash
 
-if [ -f ads.json ]; then > ads.json; fi
-
 input=$(curl -fsSL https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt)
 
 # 转换为JSON格式
