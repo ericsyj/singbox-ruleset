@@ -32,3 +32,6 @@ echo '            ]
         }
     ]
 }' >> ads.json
+
+chmod +x sing-box/sing-box
+sing-box/sing-box rule-set compile --output ads.srs ads.json
