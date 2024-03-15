@@ -15,13 +15,13 @@ if [ "$VERSION" != "$CURRENT" ]; then
     rm sing-box.tar.gz
     cp -f sing-box/sing-box-$VERSION-linux-amd64/sing-box sing-box
     rm -rf sing-box/sing-box-$VERSION-linux-amd64
-
-    curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$VERSION/sing-box-$VERSION-linux-arm64.tar.gz"
-    tar -zxvf sing-box.tar.gz -C sing-box
-    rm sing-box.tar.gz
-    cp -f sing-box/sing-box-$VERSION-linux-arm64/sing-box sing-box/CrashCore
-    rm -rf sing-box/sing-box-$VERSION-linux-arm64
-    chmod -x upx/upx
-    upx/upx --best sing-box/CrashCore
-    tar -czvf sing-box/CrashCore.tar.gz sing-box/CrashCore
 fi
+
+curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$VERSION/sing-box-$VERSION-linux-arm64.tar.gz"
+tar -zxvf sing-box.tar.gz -C sing-box
+rm sing-box.tar.gz
+cp -f sing-box/sing-box-$VERSION-linux-arm64/sing-box sing-box/CrashCore
+rm -rf sing-box/sing-box-$VERSION-linux-arm64
+chmod -x upx/upx
+upx/upx --best sing-box/CrashCore
+tar -czvf sing-box/CrashCore.tar.gz sing-box/CrashCore
