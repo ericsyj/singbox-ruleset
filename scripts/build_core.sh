@@ -23,5 +23,5 @@ if [ "$VERSION" != "$CURRENT" ]; then
     rm -rf sing-box/sing-box-$VERSION-linux-arm64
     chmod -x upx/upx
     upx/upx --best sing-box/CrashCore
-    tar -czvf singbox/CrashCore.tar.gz sing-box/CrashCore
+    tar -czvf sing-box/CrashCore.tar.gz sing-box/CrashCore
 fi
