@@ -22,7 +22,7 @@ tar -zxvf sing-box.tar.gz -C sing-box
 rm sing-box.tar.gz
 cp -f sing-box/sing-box-$VERSION-linux-arm64/sing-box sing-box/CrashCore
 rm -rf sing-box/sing-box-$VERSION-linux-arm64
-chmod -x upx/upx
+chmod +x upx/upx
 upx/upx --best sing-box/CrashCore
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
