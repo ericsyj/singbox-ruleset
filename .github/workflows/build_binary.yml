@@ -1,19 +1,19 @@
-name: Build singbox core for shellcrash
+name: Building binary files
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 0 * * *'
 permissions:
   contents: write
 jobs:
   run-bash-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build rulesets
+      - uses: actions/checkout@v4
+      - name: Building binary files
         run: |
-          chmod +x scripts/build_core.sh
-          scripts/build_core.sh
+          chmod +x scripts/build_binary.sh
+          scripts/build_binary.sh
       - name: Commit and push if it changed
         run: |
           git diff
