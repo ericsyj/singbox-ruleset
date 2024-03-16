@@ -36,4 +36,4 @@ chmod +x upx/upx
 upx/upx --best sing-box/CrashCore
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
-echo $SINGBOX_VER > version
+echo $SINGBOX_VER > version.txt
