@@ -15,11 +15,10 @@ rm -rf upx-$UPX_VER-amd64_linux/
 
 #更新sing-box amd64核心和shellcrash arm64核心
 SINGBOX_VER=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases |
+    grep '"prerelease": true,' -B 10 -m 1 |
     grep tag_name |
     cut -d ":" -f2 |
-    sed 's/\"//g;s/\,//g;s/\ //g;s/v//' |
-    grep beta |
-    head -n 1)
+    sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
 
 curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER/sing-box-$SINGBOX_VER-linux-amd64.tar.gz"
 tar -zxvf sing-box.tar.gz -C sing-box
