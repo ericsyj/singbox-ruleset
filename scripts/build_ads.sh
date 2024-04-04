@@ -16,8 +16,9 @@ do
     if [[ $line == \#* ]]; then
         continue
     fi
-    # 去掉开头的加号
+    # 去掉开头的加号和点
     line=${line#+}
+    line=${line#.}
     # 添加到JSON文件
     echo '                "'$line'",' >> ads.json
 done <<< $input
