@@ -14,7 +14,7 @@ cp -f upx-$UPX_VER-amd64_linux/upx upx/
 rm -rf upx-$UPX_VER-amd64_linux/
 
 #更新sing-box amd64核心和shellcrash arm64核心
-SINGBOX_VER=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases |
+SINGBOX_VER=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest |
     grep tag_name |
     cut -d ":" -f2 |
     sed 's/\"//g;s/\,//g;s/\ //g;s/v//' |
