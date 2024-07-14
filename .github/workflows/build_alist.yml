@@ -1,4 +1,4 @@
-name: Building binary files
+name: Building alist core
 on:
   workflow_dispatch:
   schedule:
