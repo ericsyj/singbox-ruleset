@@ -46,6 +46,7 @@ rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/
 
 chmod +x upx/upx
 upx/upx --best sing-box/CrashCore
+upx/upx --best sing-box/sing-box_win64v3.exe
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
 echo $SINGBOX_VER_PRE >version.txt
