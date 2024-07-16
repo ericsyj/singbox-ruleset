@@ -38,14 +38,14 @@ rm sing-box.tar.gz
 cp -f sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/sing-box sing-box/CrashCore
 rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/
 
-chmod +x upx/upx
-upx/upx --best sing-box/CrashCore
-cd sing-box
-tar -czvf CrashCore.tar.gz CrashCore
-echo $SINGBOX_VER_PRE >version.txt
-
 curl -Lo sing-box.zip "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-windows-amd64v3.zip"
 unzip sing-box.zip -d sing-box/
 rm sing-box.zip
 cp -f sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/sing-box.exe sing-box/sing-box_win64v3.exe
 rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/
+
+chmod +x upx/upx
+upx/upx --best sing-box/CrashCore
+cd sing-box
+tar -czvf CrashCore.tar.gz CrashCore
+echo $SINGBOX_VER_PRE >version.txt
