@@ -26,7 +26,7 @@ SINGBOX_VER_PRE=$(curl -s https://api.github.com/repos/SagerNet/sing-box/release
     sed 's/\"//g;s/\,//g;s/\ //g;s/v//' |
     head -n 1)
 
-curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_LATEST/sing-box-$SINGBOX_VER_LATEST-linux-amd64.tar.gz"
+curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-linux-amd64.tar.gz"
 tar -zxvf sing-box.tar.gz -C sing-box
 rm sing-box.tar.gz
 cp -f sing-box/sing-box-$SINGBOX_VER_LATEST-linux-amd64/sing-box sing-box/
