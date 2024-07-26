@@ -50,3 +50,10 @@ upx/upx --best sing-box/sing-box_win64v3.exe
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
 echo $SINGBOX_VER_PRE >version.txt
+
+RUN_ID=curl -s https://api.github.com/repos/PuerNya/sing-box/actions/runs | jq -r '.workflow_runs[] | select(.name == "Build SFA") | .id' | head -n 1
+ARTIFACT_ID=curl -s https://api.github.com/repos/PuerNya/sing-box/actions/runs/$RUN_ID/artifacts | jq '.artifacts[] | .id' | head -n 1
+curl -Lo https://api.github.com/repos/PuerNya/sing-box/actions/artifacts/$ARTIFACT_ID/zip singboxp.zip
+unzip singboxp.zip
+rm -f singboxp.zip
+mv SFA-*-foss-arm64-v8a-signed.apk singboxp-armv8.apk
