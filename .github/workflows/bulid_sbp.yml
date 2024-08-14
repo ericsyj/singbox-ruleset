@@ -13,6 +13,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: sing-box-p
+      - name: Checkout branch
+        run: git checkout sing-box-p || git checkout -b sing-box-p
       - name: Build sbp
         env:
           TOKEN: ${{ secrets.TOKEN }}
