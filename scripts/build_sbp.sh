@@ -23,7 +23,7 @@ count=0
 RUN_ID=$(curl -s https://api.github.com/repos/PuerNya/sing-box/actions/runs?status=success | jq -r '.workflow_runs[] | select(.name == "Build Cores") | .id' | head -n 1)
 NAME=$(curl -s https://api.github.com/repos/PuerNya/sing-box/actions/runs/$RUN_ID/artifacts | jq '.artifacts[] | .name' | head -n 1)
 echo $NAME | grep -q -e "alpha" -e "beta" && count=1
-echo $NAME | cut -d '-' -f "2-$((count+3))" > ../version-p.txt
+echo $NAME | cut -d '-' -f "3-$((count+4))" > ../version-p.txt
 ARTIFACT_ID_LIST=$(curl -s https://api.github.com/repos/PuerNya/sing-box/actions/runs/$RUN_ID/artifacts?per_page=100 | jq '.artifacts[] | .id')
 for ARTIFACT_ID in $ARTIFACT_ID_LIST; do
     curl -L -H "Authorization: token $TOKEN" -o $ARTIFACT_ID.zip https://api.github.com/repos/PuerNya/sing-box/actions/artifacts/$ARTIFACT_ID/zip

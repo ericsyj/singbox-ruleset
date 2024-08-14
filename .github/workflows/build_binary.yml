@@ -11,8 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Building binary files
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
         run: |
           chmod +x scripts/build_binary.sh
           scripts/build_binary.sh
