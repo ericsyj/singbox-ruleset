@@ -1,6 +1,5 @@
 #!/bin/bash
 
-git checkout sing-box-p || git checkout -b sing-box-p
 rm -rf sfa-puer sbc-puer shellcrash-puer
 mkdir tmp sfa-puer sbc-puer shellcrash-puer
 cd tmp

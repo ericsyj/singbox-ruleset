@@ -11,9 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Building binary files
-        run: |
-          chmod +x scripts/build_binary.sh
-          scripts/build_binary.sh
+        run: bash scripts/build_binary.sh
       - name: Commit and push if it changed
         run: |
           git diff

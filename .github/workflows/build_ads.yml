@@ -11,9 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build rulesets
-        run: |
-          chmod +x scripts/build_ads.sh
-          scripts/build_ads.sh
+        run: bash scripts/build_ads.sh
       - name: Commit and push if it changed
         run: |
           git diff

@@ -13,11 +13,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: sing-box-p
+      - name: Checkout branch
+        run: git checkout sing-box-p || git checkout -b sing-box-p
       - name: Build sbp
         env:
           TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          bash <(curl -s https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/scripts/build_sbp.sh)
+        run: bash <(curl -s https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/scripts/build_sbp.sh)
       - name: Commit and push if it changed
         run: |
           git diff
