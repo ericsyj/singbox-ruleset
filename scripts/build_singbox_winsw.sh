@@ -11,6 +11,6 @@ curl -Lo winsw.exe "https://github.com/winsw/winsw/releases/download/v$WINSW_VER
 
 curl -Lo sing-box.exe "https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/sing-box/sing-box_win64v3.exe"
 
-zip -r singbox-winsw.zip winsw.exe sing-box.xml *.vbs sing-box.exe data/
-
 cp -f ../windows/singbox.json data/config.json
+
+zip -r singbox-winsw.zip winsw.exe sing-box.xml *.vbs sing-box.exe data/
