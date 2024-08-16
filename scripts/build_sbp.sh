@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 # rm -rf sfa-puer sbc-puer shellcrash-puer
 # mkdir tmp sfa-puer sbc-puer shellcrash-puer

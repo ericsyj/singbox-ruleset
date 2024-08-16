@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 
 # #更新UPX版本
 # UPX_VER=$(curl -s https://api.github.com/repos/upx/upx/releases/latest |
