@@ -43,8 +43,8 @@
 # tar -czvf shellcrash-puer/CrashCore.tar.gz shellcrash-puer/CrashCore
 # rm -f upx
 
-ll shellcrash-puer/
-ll shellcrash-puer/CrashCore
+ls -l shellcrash-puer/
+ls -l shellcrash-puer/CrashCore
 curl -s -o upx https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/upx/upx
 chmod +x upx
 ./upx --best shellcrash-puer/CrashCore
