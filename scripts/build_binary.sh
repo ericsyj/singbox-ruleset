@@ -45,6 +45,8 @@ cp -f sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/sing-box.exe sing-box/s
 rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/
 
 chmod +x upx/upx
+ll sing-box
+ll sing-box/CrashCore
 upx/upx --best sing-box/CrashCore
 upx/upx --best sing-box/sing-box_win64v3.exe
 cd sing-box
