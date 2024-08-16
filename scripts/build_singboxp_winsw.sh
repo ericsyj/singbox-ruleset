@@ -13,11 +13,10 @@ curl -Lo sing-box.exe "https://raw.githubusercontent.com/ericsyj/singbox-ruleset
 
 curl -Lo upx "https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/upx/upx"
 
-chmod +x upx
+chmod -R +x ./
 ./upx --best sing-box.exe
 
 rm -f upx
 
-zip -r singboxp-winsw.zip winsw.exe sing-box.xml *.vbs sing-box.exe data/
-
 cp -f ../windows/singboxp.json data/config.json
+zip -r singboxp-winsw.zip winsw.exe sing-box.xml *.vbs sing-box.exe data/
