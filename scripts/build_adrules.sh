@@ -4,7 +4,7 @@ input=$(curl -fsSL https://raw.githubusercontent.com/Cats-Team/AdRules/main/adru
 
 # 转换为JSON格式
 echo '{
-    "version": 1,
+    "version": 2,
     "rules": [
         {
             "domain_suffix": [' > ads.json
