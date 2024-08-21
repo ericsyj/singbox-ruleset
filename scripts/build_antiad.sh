@@ -1,35 +1,8 @@
 #!/bin/bash
 
-input=$(curl -fsSL https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml)
-
-# 转换为JSON格式
-echo '{
-    "version": 1,
-    "rules": [
-        {
-            "domain_suffix": [' >antiad.json
-
-# 遍历每一行
-while IFS= read -r line; do
-    # 忽略注释行
-    if [[ $line == \#* ]] || [ $line == "payload:" ] || [ -z $line ]; then
-        continue
-    fi
-    # 去掉yaml开头和结尾的多余字符
-    line=${line#  - \'+.}
-    line=${line%\'}
-    # 添加到JSON文件
-    echo '                "'$line'",' >>antiad.json
-done <<<$input
-
-# 移除最后一个逗号
-sed -i '$ s/,$//' antiad.json
-
-# 添加结束标记
-echo '            ]
-        }
-    ]
-}' >>antiad.json
-
-chmod +x sing-box/sing-box
-sing-box/sing-box rule-set compile --output antiad.srs antiad.json
+curl -fsSL -o antiad.yaml https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml
+wget -O ssc https://github.com/PuerNya/sing-srs-converter/releases/download/v2.0.1/sing-srs-converter-v2.0.1-linux-x86_64_v3
+chmod +x ssc
+./ssc antiad.yaml -m
+mv antiad.yaml.srs antiad.srs
+rm -f ssc antiad.yaml
