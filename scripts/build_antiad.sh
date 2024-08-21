@@ -12,7 +12,7 @@ echo '{
 # 遍历每一行
 while IFS= read -r line; do
     # 忽略注释行
-    if [[ $line == \#* ]] || [ $line = "payload:" ] || [ -z $line ]; then
+    if [[ $line == \#* ]] || [ "$line" = "payload:" ] || [ -z "$line" ]; then
         continue
     fi
     # 去掉yaml开头和结尾的多余字符
