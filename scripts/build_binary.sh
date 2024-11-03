@@ -13,7 +13,7 @@ rm upx.tar.xz
 cp -f upx-$UPX_VER-amd64_linux/upx upx/
 rm -rf upx-$UPX_VER-amd64_linux/
 
-#更新sing-box linux amd64核心、shellcrash arm64核心和sing-box win amd64v3核心
+#更新sing-box linux amd64核心、shellcrash arm64核心和sing-box win amd64核心
 SINGBOX_VER_LATEST=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest |
     grep tag_name |
     cut -d ":" -f2 |
@@ -38,15 +38,15 @@ rm sing-box.tar.gz
 cp -f sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/sing-box sing-box/CrashCore
 rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/
 
-curl -Lo sing-box.zip "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-windows-amd64v3.zip"
+curl -Lo sing-box.zip "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-windows-amd64.zip"
 unzip sing-box.zip -d sing-box/
 rm sing-box.zip
-cp -f sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/sing-box.exe sing-box/sing-box_win64v3.exe
-rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64v3/
+cp -f sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64/sing-box.exe sing-box/sing-box_win64.exe
+rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64/
 
 chmod -R +x ./
 upx/upx --best sing-box/CrashCore
-upx/upx --best sing-box/sing-box_win64v3.exe
+upx/upx --best sing-box/sing-box_win64.exe
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
 echo $SINGBOX_VER_PRE >version.txt
