@@ -9,7 +9,7 @@ WINSW_VER_PRE=$(curl -s https://api.github.com/repos/winsw/winsw/releases |
 cd singbox_winsw/
 curl -Lo winsw.exe "https://github.com/winsw/winsw/releases/download/v$WINSW_VER_PRE/WinSW-x64.exe"
 
-curl -Lo sing-box.exe "https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/sing-box/sing-box_win64v3.exe"
+curl -Lo sing-box.exe "https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/sing-box/sing-box_win64.exe"
 
 cp -f ../windows/singbox.json data/config.json
 
