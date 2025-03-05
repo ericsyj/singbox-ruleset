@@ -26,27 +26,27 @@ SINGBOX_VER_PRE=$(curl -s https://api.github.com/repos/SagerNet/sing-box/release
     sed 's/\"//g;s/\,//g;s/\ //g;s/v//' |
     head -n 1)
 
-curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-linux-amd64.tar.gz"
+curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_LATEST/sing-box-$SINGBOX_VER_LATEST-linux-amd64.tar.gz"
 tar -zxvf sing-box.tar.gz -C sing-box
 rm sing-box.tar.gz
-cp -f sing-box/sing-box-$SINGBOX_VER_PRE-linux-amd64/sing-box sing-box/
-rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-linux-amd64
+cp -f sing-box/sing-box-$SINGBOX_VER_LATEST-linux-amd64/sing-box sing-box/
+rm -rf sing-box/sing-box-$SINGBOX_VER_LATEST-linux-amd64
 
-curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-linux-arm64.tar.gz"
+curl -Lo sing-box.tar.gz "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_LATEST/sing-box-$SINGBOX_VER_LATEST-linux-arm64.tar.gz"
 tar -zxvf sing-box.tar.gz -C sing-box/
 rm sing-box.tar.gz
-cp -f sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/sing-box sing-box/CrashCore
-rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-linux-arm64/
+cp -f sing-box/sing-box-$SINGBOX_VER_LATEST-linux-arm64/sing-box sing-box/CrashCore
+rm -rf sing-box/sing-box-$SINGBOX_VER_LATEST-linux-arm64/
 
-curl -Lo sing-box.zip "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_PRE/sing-box-$SINGBOX_VER_PRE-windows-amd64.zip"
+curl -Lo sing-box.zip "https://github.com/SagerNet/sing-box/releases/download/v$SINGBOX_VER_LATEST/sing-box-$SINGBOX_VER_LATEST-windows-amd64.zip"
 unzip sing-box.zip -d sing-box/
 rm sing-box.zip
-cp -f sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64/sing-box.exe sing-box/sing-box_win64.exe
-rm -rf sing-box/sing-box-$SINGBOX_VER_PRE-windows-amd64/
+cp -f sing-box/sing-box-$SINGBOX_VER_LATEST-windows-amd64/sing-box.exe sing-box/sing-box_win64.exe
+rm -rf sing-box/sing-box-$SINGBOX_VER_LATEST-windows-amd64/
 
 chmod -R +x ./
 upx/upx --best sing-box/CrashCore
 upx/upx --best sing-box/sing-box_win64.exe
 cd sing-box
 tar -czvf CrashCore.tar.gz CrashCore
-echo $SINGBOX_VER_PRE >version.txt
+echo $SINGBOX_VER_LATEST >version.txt
