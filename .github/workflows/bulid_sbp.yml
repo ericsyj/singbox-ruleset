@@ -1,0 +1,29 @@
+name: Build sbp
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 * * *'
+permissions:
+  contents: write
+jobs:
+  run-bash-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v4
+        with:
+          ref: sing-box-p
+      - name: Checkout branch
+        run: git checkout sing-box-p || git checkout -b sing-box-p
+      - name: Build sbp
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: bash <(curl -s https://raw.githubusercontent.com/ericsyj/singbox-ruleset/main/scripts/build_sbp.sh)
+      - name: Commit and push if it changed
+        run: |
+          git diff
+          git config --global user.email "github-actions[bot]@example.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit --amend --no-edit
+          git push -f
