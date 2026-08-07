@@ -1,0 +1,24 @@
+name: Build rulesets for singbox
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+permissions:
+  contents: write
+jobs:
+  run-bash-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build rulesets
+        run: |
+          bash scripts/build_adrules.sh
+          bash scripts/build_antiad.sh
+      - name: Commit and push if it changed
+        run: |
+          git diff
+          git config --global user.email "github-actions[bot]@example.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit --amend --no-edit
+          git push -f
